@@ -11,6 +11,7 @@ flask = "*"
 redis = "*"
 flask-restplus = "*"
 astral = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.5"
