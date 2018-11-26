@@ -12,7 +12,7 @@ api = Api(application)
 if application.config['DEBUG']:
     r = redis.StrictRedis(charset="utf-8", decode_responses=True)
 else:
-    r = redis.from_url(os.environ.get("REDIS_URL"))
+    r = redis.from_url(os.environ.get("REDIS_URL"),charset="utf-8", decode_responses=True)
 loc = Location(('Warsaw', 'Poland', 52.22977, 21.01178,'Europe/Warsaw',110))
 
 #models
