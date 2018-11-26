@@ -5,8 +5,8 @@ from astral import Location
 import redis
 from datetime import datetime,timezone
 
-app = Flask(__name__)
-api = Api(app)
+application = Flask(__name__)
+api = Api(application)
 
 r = redis.StrictRedis(charset="utf-8", decode_responses=True)
 
@@ -51,5 +51,5 @@ class Color(Resource):
         hsl = "hsl({},{}%,{}%)".format(240,100,round(lightness,2))
         return {'color':hsl}
 if __name__ == "__main__":
-    app.config['DEBUG'] = True
-    app.run(host='0.0.0.0')
+    application.config['DEBUG'] = True
+    application.run(host='0.0.0.0')
