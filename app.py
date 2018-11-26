@@ -3,13 +3,16 @@ from flask_restplus import Api, Resource, fields, marshal
 
 from astral import Location
 import redis
+import os
 from datetime import datetime,timezone
 
 application = Flask(__name__)
 api = Api(application)
 
-r = redis.StrictRedis(charset="utf-8", decode_responses=True)
-
+if application.config['DEBUG']:
+    r = redis.StrictRedis(charset="utf-8", decode_responses=True)
+else:
+    r = redis.from_url(os.environ.get("REDIS_URL"))
 loc = Location(('Warsaw', 'Poland', 52.22977, 21.01178,'Europe/Warsaw',110))
 
 #models
