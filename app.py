@@ -52,7 +52,7 @@ class Color(Resource):
         azimuth = loc.solar_azimuth(datetime.now(tz=loc.tz))
         lightness = 100-abs(180-azimuth)/18*10
         hsl = "hsl({},{}%,{}%)".format(240,100,round(lightness,2))
-        return {'color':hsl}
+        return {'color':hsl},200
 if __name__ == "__main__":
     application.config['DEBUG'] = True
     application.run(host='0.0.0.0')
