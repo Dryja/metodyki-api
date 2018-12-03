@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask_restplus import Api, Resource, fields, marshal
+from flask_cors import CORS
 
 from astral import Location
 import redis
@@ -7,6 +8,7 @@ import os
 from datetime import datetime,timezone
 
 application = Flask(__name__)
+CORS(application)
 api = Api(application)
 
 if application.config['DEBUG']:
