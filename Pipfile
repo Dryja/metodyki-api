@@ -13,6 +13,7 @@ redis = "*"
 flask-restplus = "*"
 astral = "*"
 gunicorn = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.5"
